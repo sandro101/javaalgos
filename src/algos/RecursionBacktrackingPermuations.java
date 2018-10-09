@@ -3,11 +3,11 @@ package algos;
 import java.util.ArrayList;
 import java.util.List;
 
-class RecursionPermuations {
+class RecursionBacktrackingPermuations {
 
 	public static void main(String[] args) {
 		int[] testIntArry = new int[] { 1, 2, 3 };
-		new RecursionPermuations().permute(testIntArry);
+		new RecursionBacktrackingPermuations().permute(testIntArry);
 	}
 
 	public List<List<Integer>> permute(int[] nums) {
