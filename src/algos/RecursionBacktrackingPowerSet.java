@@ -21,7 +21,7 @@ class RecursionBacktrackingPowerSet {
 		for (int i = start; i < nums.length; i++) {
 			if(!builderList.contains(nums[i])) {
 				builderList.add(nums[i]);
-				backtracking(set, builderList, nums, start - 1);
+				backtracking(set, builderList, nums, start + 1);
 				builderList.remove(builderList.size() - 1);
 			}
 		}
