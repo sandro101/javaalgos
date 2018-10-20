@@ -11,17 +11,17 @@ class RecursionBacktrackingPowerSet {
 	}
 
     public List<List<Integer>> subsets(int[] nums) {
-    	List<List<Integer>> set = new ArrayList<>();
-    	backtracking(set, new ArrayList<Integer>(), nums, 0);
-		return set;
+    	List<List<Integer>> powerset = new ArrayList<>();
+    	backtracking(powerset, new ArrayList<Integer>(), nums, 0);
+		return powerset;
     }
 
-	private void backtracking(List<List<Integer>> set, ArrayList<Integer> builderList, int[] nums, int start) {
-		set.add(new ArrayList<Integer>(builderList));
+	private void backtracking(List<List<Integer>> permutations, ArrayList<Integer> builderList, int[] nums, int start) {
+		permutations.add(new ArrayList<Integer>(builderList));
 		for (int i = start; i < nums.length; i++) {
 			if(!builderList.contains(nums[i])) {
 				builderList.add(nums[i]);
-				backtracking(set, builderList, nums, start + 1);
+				backtracking(permutations, builderList, nums, start + 1);
 				builderList.remove(builderList.size() - 1);
 			}
 		}

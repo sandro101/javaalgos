@@ -14,7 +14,7 @@ class LinkedListReverse {
 		one.next = two;
 		
 		ListNode reversed = new LinkedListReverse().reverseList(one);
-		while(reversed.next != null) {
+		while(reversed != null) {
 			System.out.print(reversed.val + "->");
 			reversed = reversed.next;
 		}
@@ -30,14 +30,20 @@ class LinkedListReverse {
 		}
 	}
 
-	public ListNode reverseList(ListNode head) {	
-		ListNode newTail = new ListNode(head.val);
+	public ListNode reverseList(ListNode head) {
+        if(head == null){
+            return head;
+        }
+        if(head.next == null){
+            return head;
+        }
+		ListNode newHead = null;
 		while(head != null) {
 			ListNode parent = new ListNode(head.val);
-			parent.next = newTail;
-			newTail = parent;
+			parent.next = newHead;
+			newHead = parent;
 			head = head.next;
 		}
-		return newTail;			
+		return newHead;			
 	}
 }
