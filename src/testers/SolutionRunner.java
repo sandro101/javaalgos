@@ -8,6 +8,8 @@ class SolutionRunner {
 		zeroOutColumn(2, testGrid);
 		int a = 1;
 		
+		System.out.println((int) 'a' - 97);
+		
 	}
 
 	private static void zeroOutRow(int row, int[][] testGrid) {
