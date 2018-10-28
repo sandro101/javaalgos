@@ -2,19 +2,20 @@ package algos;
 
 class BitSumOfTwoNumbers {
 	
-    public int getSum(int a, int b) {
-        if (a == 0) {
-        	return b;			
+	public int getSum(int a, int b) {
+		if (a == 0) return b;
+		if (b == 0) return a;
+
+		while (b != 0) {
+			int carry = a & b;
+			a = a ^ b;
+			b = carry << 1;
 		}
-        if (b == 0) {
-        	return a;		
-		}
-        int carry = 0;
-        while(b != 1) {
-        	carry = (a & b) << 1; // anywhere I have a carry shift it left
-        	a = a ^ b; //where we just get a one there is no need for carry
-        	b = carry;
-        }       
-        return a;
+		
+		return a;
+	}
+    
+    public int getSumRecursive(int a, int b) {
+    	return (b == 0) ? a : getSumRecursive(a ^ b, (a & b) << 1);
     }
 }
