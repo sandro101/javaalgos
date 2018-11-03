@@ -23,12 +23,14 @@ class ArrayInvertMatrix {
 
 	private void invert(int[] row) {
 		for (int i = 0; i < row.length; i++) {
+			// flip all the ones to zeros
 			row[i] = Math.abs(row[i] - 1);
 		}		
 	}
 
 	private void reverse(int[] row) {
 		for (int i = 0; i < row.length / 2; i++) {
+			// reverse the rows
 			int temp = row[i];
 			row[i] = row[row.length - i - 1];
 			row[row.length - i - 1] = temp;

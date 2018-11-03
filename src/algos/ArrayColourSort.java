@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 class ArrayColourSort {
 	
+	//counting sort/bucket sort
+	
+	//Count how many of each number into an array then loop over that array
+	
 	public static void main(String[] args) {
 		int[] testIntArry = new int[] { 0, 2, 1, 1, 2, 0 };
 		new ArrayColourSort().sortColors(testIntArry);

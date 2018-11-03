@@ -1,6 +1,10 @@
 package algos;
 
 class ArrMaxSubArray {
+	
+	// Maximum sum from a sub array. Key is keep adding until it flips negative, if it flips
+	// negative you know you should start your sum again
+	
 	public static void main(String[] args) {
 		System.out.println(maxSubDynamic(new int[] { 1, 10, -7, 12, -100, 1, 10 }));
 	}

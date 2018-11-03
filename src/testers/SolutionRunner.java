@@ -1,15 +1,12 @@
 package testers;
 
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
 class SolutionRunner {
 
 	public static void main(String[] args) {
-		int[][] testGrid = new int[][] { {1, 2, 3, 4, 5}, {1, 2, 3, 4, 5}, {1, 2, 3, 4, 5} };
-		zeroOutRow(1, testGrid);
-		zeroOutColumn(2, testGrid);
-		int a = 1;
-		
-		System.out.println((int) 'a' - 97);
-		
+		System.out.println(Arrays.toString(new String[]{"hello", "world"}));
 	}
 
 	private static void zeroOutRow(int row, int[][] testGrid) {

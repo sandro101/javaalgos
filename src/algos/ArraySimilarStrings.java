@@ -10,6 +10,13 @@ class ArraySimilarStrings {
 		String[] in = new String[] { "abc","acb","bac","bca","cab","cba" };
 		System.out.println(new ArraySimilarStrings().numSpecialEquivGroups(in));
 	}
+	
+	// by swapping only odd or even positioned strings with each other, determine which
+	// strings can be remade from others in the array and return the actual number of unique strings
+	
+	// Soln is just to count the number of different letters in odd and even places in each string
+	// If they are the same then with some swapping they can be made to look the same, do this for odd
+	// and even placed strings
 
 	public int numSpecialEquivGroups(String[] A) {
 		Set<String> perms = new HashSet<>();

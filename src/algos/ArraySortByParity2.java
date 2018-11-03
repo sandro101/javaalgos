@@ -2,6 +2,9 @@ package algos;
 
 class ArraySortByParity2 {
 	
+	//Sort array so that all of the A[i] numbers where i is odd are odd and similarly
+	//where A[i] is even
+	
     public int[] sortArrayByParityII(int[] A) {
         int[] B = new int[A.length];
         int e = 0;
