@@ -1,7 +1,8 @@
 package testers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.stream.IntStream;
+import java.util.List;
 
 class SolutionRunner {
 
@@ -9,15 +10,21 @@ class SolutionRunner {
 		System.out.println(Arrays.toString(new String[]{"hello", "world"}));
 	}
 
-	private static void zeroOutRow(int row, int[][] testGrid) {
-		for(int i = 0; i < testGrid[row].length; i++) {
-			testGrid[row][i] = 0;
-		}		
-	}
-	
-	private static void zeroOutColumn(int col, int[][] testGrid) {
-		for(int i = 0; i < testGrid.length; i++) {
-			testGrid[i][col] = 0;
-		}		
-	}
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> sol = new ArrayList<>();
+        backtrack(sol, 0, nums, new ArrayList<Integer>());
+		return sol;
+    }
+    
+    private void backtrack(List<List<Integer>> sol, int start, int[] nums, List<Integer> builder) {
+        if(!sol.contains(builder)){
+            sol.add(builder);
+        } else {
+            for(int i = start; i < nums.length; i++){
+                builder.add(nums[i]);
+                backtrack(sol, start + 1, nums, builder);
+                builder.remove(builder.size() - 1);
+            }
+        }
+    }
 }

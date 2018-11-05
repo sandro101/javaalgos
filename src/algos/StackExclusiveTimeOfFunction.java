@@ -17,12 +17,6 @@ class StackExclusiveTimeOfFunction {
 			"2:end:96", "2:end:100", "1:end:102", "2:start:105", "2:end:109", "0:end:114" 
 		};
 		
-		String[] logs2 = new String[] { 
-			"0:start:0",
-			 "1:start:2",
-			 "1:end:5",
-			 "0:end:6" 
-		};
 		int[] sol = new StackExclusiveTimeOfFunction().exclusiveTime(8, Arrays.asList(logs));
 		System.out.println(Arrays.toString(sol));
 	}

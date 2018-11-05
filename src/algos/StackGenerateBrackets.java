@@ -1,4 +1,4 @@
-	package algos;
+package algos;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -7,43 +7,38 @@ import java.util.Set;
 import java.util.Stack;
 
 class StackGenerateBrackets {
-	
-	public static void main(String[] args) {
-		new StackGenerateBrackets().generateParenthesis(3);
-	}
-	
-    public List<String> generateParenthesis(int n) {
-    	StringBuilder sb = new StringBuilder();
-    	for (int i = 0; i < n; i++) {
-			sb.append("()");
-		}
-    	String brackets = sb.toString();
-    	Set<String> sol = new HashSet<String>();
-    	backtrack(brackets, n * 2, new StringBuilder(), sol, 0);
-    	List<String> list = new ArrayList<>();
-    	list.addAll(sol);
-    	return list;
-    }
-    
 
-	private void backtrack(String brackets, int length, StringBuilder sb, Set<String> permutations, int start) {
-		if(!permutations.contains(sb.toString()) && length == sb.length() && isValid(sb.toString())) {			
-			permutations.add(sb.toString());
-		}
-		for (int i = start; i < brackets.length(); i++) {
-			sb.append(brackets.charAt(i));
-			backtrack(brackets, length, sb, permutations, start + 1);
-			sb.delete(sb.length() - 1, sb.length());
-		}		
-	} 
+	public static void main(String[] args) {
+		System.out.println(new StackGenerateBrackets().generateParenthesis(3));
 	
-    public boolean isValid(String s) {
-        Stack<Character> brackets = new Stack<Character>();
-        for (int i = 0; i < s.length(); i++) {
-			char b = s.charAt(i);
-			if(b == '(') brackets.push(b);			
-			if(b == ')' && (brackets.isEmpty() ||  brackets.pop() != '(')) return false;	
+	}
+
+	public List<String> generateParenthesis(int n) {
+		Set<String> sol = new HashSet<String>();
+		permute("", n * 2, sol, n * 2);
+		List<String> list = new ArrayList<>();
+		list.addAll(sol);
+		return list;
+	}
+
+	private void permute(String s, int size, Set<String> sol, int n) {
+		if (s.length() == n) {
+			if(isValid(s)) sol.add(s);			
+		} else {
+			permute("(" + s, size - 1, sol, n);
+			permute(")" + s, size - 1, sol, n);
 		}
-        return brackets.isEmpty();
-    }
+	}
+
+	public boolean isValid(String s) {
+		Stack<Character> brackets = new Stack<Character>();
+		for (int i = 0; i < s.length(); i++) {
+			char b = s.charAt(i);
+			if (b == '(')
+				brackets.push(b);
+			if (b == ')' && (brackets.isEmpty() || brackets.pop() != '('))
+				return false;
+		}
+		return brackets.isEmpty();
+	}
 }
