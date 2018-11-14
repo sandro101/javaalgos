@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 class RecursionBacktrackingSubset {
 
 	public static void main(String[] args) {
-		int[] testIntArry = new int[] { 1, 2, 3 };
+		int[] testIntArry = new int[] { 1, 2, 2 };
 		System.out.println(new RecursionBacktrackingSubset().subsets(testIntArry));
 	}
 
@@ -27,12 +27,9 @@ class RecursionBacktrackingSubset {
 		Collections.sort(l);
 		sol.add(l);
 		for (int i = start; i < nums.length; i++) {
-			if (!builder.contains(nums[i])) {
-				builder.add(nums[i]);
-				// Collections.sort(builder);
-				backtrack(sol, start + 1, nums, builder);
-				builder.remove(builder.size() - 1);
-			}
+			builder.add(nums[i]);
+			backtrack(sol, start + 1, nums, builder);
+			builder.remove(builder.size() - 1);
 		}
 	}
 }
