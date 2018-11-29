@@ -7,11 +7,17 @@ import java.util.Map;
 
 class ArrayTopKFrequencyValues {
 
+	// https://leetcode.com/problems/top-k-frequent-elements/description/
+	
 	public static void main(String[] args) {
-		int[] testIntArry = new int[] { 1, 1, 1, 2, 2, 3 };
-		new ArrayTopKFrequencyValues().topKFrequent(testIntArry, 2);
+		int[] testIntArry = new int[] { 1, 1, 1, 2, 2, 2, 3 };
+		System.out.println(new ArrayTopKFrequencyValues().topKFrequent(testIntArry, 1));
 	}
-
+	
+	// General approach is to create a freq map of how many times each number appears num -> freq
+	// Then invert that map so we have a freq -> List of nums appearing that many times
+	// Then loop over the inverted map copying the frequent elements up to whatever was asked for
+	
 	public List<Integer> topKFrequent(int[] nums, int k) {
 		Map<Integer, Integer> freqMap = new HashMap<Integer, Integer>();
 		@SuppressWarnings("unchecked")

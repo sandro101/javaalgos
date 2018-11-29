@@ -11,6 +11,8 @@ public class TreeMaxDepth {
 			val = x;
 		}
 	}
+	
+	// At every level take the maximum height of the right hand tree and the left hand tree
 
     public int maxDepth(TreeNode root) {
         int height = 0;

@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 class ArraySimilarStrings {
+	
+	// https://leetcode.com/problems/groups-of-special-equivalent-strings/description/
 
 	public static void main(String[] args) {
 		String[] in = new String[] { "abc","acb","bac","bca","cab","cba" };
